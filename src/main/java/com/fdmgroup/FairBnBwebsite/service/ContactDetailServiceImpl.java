@@ -50,8 +50,7 @@ public class ContactDetailServiceImpl implements ContactDetailService{
 
 	@Override
 	public ContactDetail saveContactDetail(ContactDetail contactDetail) {
-		// TODO Auto-generated method stub
-		return null;
+		return contactDetailRepository.save(contactDetail);
 	}
 
 }

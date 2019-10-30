@@ -41,9 +41,7 @@ public class PropertyTypeServiceImpl implements PropertyTypeService {
 
 	@Override
 	public void deletePropertyTypeById(int propertyTypeId) {
-		PropertyType propertyType = propertyTypeRepository.findById(propertyTypeId)
-				.orElseThrow(() -> new IllegalArgumentException("Invalid property type ID:" + propertyTypeId));
-		propertyTypeRepository.delete(propertyType);
+		propertyTypeRepository.deleteById(propertyTypeId);
 	}
 
 	@Override
@@ -55,21 +53,6 @@ public class PropertyTypeServiceImpl implements PropertyTypeService {
 	public List<PropertyType> getAllPropertyTypes() {
 		return propertyTypeRepository.findAll();
 	}
-
-	public PropertyTypeRepository getPropertyTypeRepository() {
-		return propertyTypeRepository;
-	}
-
-	public void setPropertyTypeRepository(PropertyTypeRepository propertyTypeRepository) {
-		this.propertyTypeRepository = propertyTypeRepository;
-	}
-
-	@Override
-	public String toString() {
-		return "PropertyTypeServiceImpl [propertyTypeRepository=" + propertyTypeRepository + "]";
-	}
-
-	
 
 
 }
