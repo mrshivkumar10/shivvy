@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.fdmgroup.FairBnBwebsite.model.ContactDetail;
-import com.fdmgroup.FairBnBwebsite.model.PropertyType;
 import com.fdmgroup.FairBnBwebsite.service.ContactDetailService;
 
 @Controller
