@@ -72,5 +72,7 @@ public class PropertyTypeController {
 		model.addAttribute("propertyTypeAttr", propertyTypeService.getAllPropertyTypes());
 		return "index-propertytypes";
 	}
+	
+	
 																							
 }
