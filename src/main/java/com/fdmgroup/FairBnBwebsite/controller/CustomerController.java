@@ -43,7 +43,6 @@ public class CustomerController {
 		}
 
 		customerService.saveCustomer(customerAttr);
-		System.out.println("saveCustomer " +customerService.saveCustomer(customerAttr));
 		model.addAttribute("customerAttr", customerService.getAllCustomers());
 		return "index-customers";
 

@@ -7,7 +7,7 @@ import com.fdmgroup.FairBnBwebsite.model.Host;
 
 public interface HostService {
 	
-	Host getHostById(int HostId);
+	Host getHostById(int HostId); //should be hostId
 	
 	Host createHost();
 	

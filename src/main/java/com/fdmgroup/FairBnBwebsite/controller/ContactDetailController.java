@@ -30,7 +30,7 @@ public class ContactDetailController {
 	}
 	
 	@GetMapping("/contactdetailsignup")
-	public String propertyTypeSignupForm(Model model) {
+	public String contactDetailSignupForm(Model model) {
 		model.addAttribute("contactDetailAttr", contactDetailService.createContactDetail());
 		return "add-contactdetail";
 	}
@@ -47,7 +47,7 @@ public class ContactDetailController {
 	}
 	
 	@GetMapping("/editcontactdetail/{id}")
-	public String propertyTypeUpdateForm(@PathVariable("id") int contactId, Model model) {
+	public String contactDetailUpdateForm(@PathVariable("id") int contactId, Model model) {
 		ContactDetail contactDetail = contactDetailService.getContactDetailById(contactId);
 		model.addAttribute("contactDetailAttr", contactDetail);
 		return "update-contactdetail";
@@ -57,7 +57,7 @@ public class ContactDetailController {
 	public String updateContactDetail(@PathVariable("id") int contactId,
 			@Valid ContactDetail contactDetail, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "update-propertytype";
+			return "update-contactDetail";
 		}
 		
 		contactDetail.setContactId(contactId);
@@ -67,7 +67,7 @@ public class ContactDetailController {
 	}
 	
 	@GetMapping("/deletecontactdetail/{id}")
-	public String deletePropertyType(@PathVariable("id") int contactId, Model model) {
+	public String deleteContactDetail(@PathVariable("id") int contactId, Model model) {
 		contactDetailService.deleteContactDetailById(contactId);
 		model.addAttribute("contactDetailAttr", contactDetailService.getAllContactDetails());
 		return "index-contactdetails";
