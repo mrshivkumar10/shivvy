@@ -10,16 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.fdmgroup.FairBnBwebsite.model.ContactDetail;
-import com.fdmgroup.FairBnBwebsite.model.Customer;
-import com.fdmgroup.FairBnBwebsite.model.PropertyType;
 import com.fdmgroup.FairBnBwebsite.model.Reservation;
 import com.fdmgroup.FairBnBwebsite.service.ReservationService;
 
 @Controller
 public class ReservationController {
 	
-	private final ReservationService reservationService;
+private final ReservationService reservationService;
 	
 	@Autowired
 	public ReservationController(ReservationService reservationService) {
@@ -76,6 +73,5 @@ public class ReservationController {
 		model.addAttribute("reservationAttr", reservationService.getAllReservations());
 		return "index-reservations";
 	}
-	
 
 }

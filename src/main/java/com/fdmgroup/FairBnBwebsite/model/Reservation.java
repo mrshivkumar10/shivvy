@@ -1,6 +1,7 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
 import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -88,4 +89,6 @@ public class Reservation {
 				+ customerId + ", checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + "]";
 	}
 	
+	
+
 }

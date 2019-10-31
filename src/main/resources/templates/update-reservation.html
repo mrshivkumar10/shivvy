@@ -24,7 +24,6 @@
 			<label for="checkOutDate">CheckOutDate</label> 
 			<input type="text" th:field="*{checkOutDate}" id="checkOutDate" placeholder="Check-Out Date">
 			<span th:if="${#fields.hasErrors('checkOutDate')}" th:errors="*{checkOutDate}"></span> 
-			
 			<input type="submit" value="Update Reservation">
 			
 		</form>

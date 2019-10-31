@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fdmgroup.FairBnBwebsite.model.Reservation;
-import com.fdmgroup.FairBnBwebsite.repository.ReservationRespository;
+import com.fdmgroup.FairBnBwebsite.repository.ReservationRepository;
 
 @Service
 public class ReservationServiceImpl implements ReservationService{
 	
 	@Autowired
-	private ReservationRespository reservationRespository;
+	private ReservationRepository reservationRepository;
 	
 
 	@Override
 	public Reservation getReservationById(int reservationId) {
-		return reservationRespository.findById(reservationId)
+		return reservationRepository.findById(reservationId)
 			.orElseThrow(() -> new IllegalArgumentException("Invalid Reservation ID: " + reservationId));
 	}
 
@@ -29,28 +29,28 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public Reservation editReservation(Reservation reservation) {
-		return reservationRespository.save(reservation);
+		return reservationRepository.save(reservation);
 	}
 
 	@Override
 	public Reservation saveReservation(Reservation reservation) {
-		return reservationRespository.save(reservation);
+		return reservationRepository.save(reservation);
 	}
 
 	@Override
 	public List<Reservation> getAllReservations() {
-		return reservationRespository.findAll();
+		return reservationRepository.findAll();
 	}
 
 	@Override
 	public void deleteReservation(Reservation reservation) {
-		reservationRespository.delete(reservation);
+		reservationRepository.delete(reservation);
 		
 	}
 
 	@Override
 	public void deleteRedervationById(int reservationId) {
-		reservationRespository.deleteById(reservationId);
+		reservationRepository.deleteById(reservationId);
 		
 	}
 
