@@ -1,7 +1,6 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "properties")
@@ -33,8 +33,10 @@ public class Property {
 	@JoinColumn(name = "location_id") //locationId
 	private Property propertyLocation;	
 	
-	@Column(name = "property_type_id")
-	private int propertyTypeId;
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "property_type_id")
+	private PropertyType propertyType;
 	
 	@Column(name = "nightly_rate")
 	private int nightlyRate;
@@ -58,12 +60,12 @@ public class Property {
 		this.propertyHost = propertyHost;
 	}
 
-	public int getPropertyTypeId() {
-		return propertyTypeId;
+	public PropertyType getPropertyType() {
+		return propertyType;
 	}
 
-	public void setPropertyTypeId(int propertyTypeId) {
-		this.propertyTypeId = propertyTypeId;
+	public void setPropertyType(PropertyType propertyType) {
+		this.propertyType = propertyType;
 	}
 
 	public int getNightlyRate() {

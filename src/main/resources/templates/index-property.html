@@ -21,10 +21,9 @@
 			</thead>
 			<tbody>
 				<tr th:each="property : ${propertyAttr}">
-					<td th:text="${property.propertyTypeId}"></td>
+					<td th:text="${property.propertyType.propertyTypeId}"></td>
 					<td th:text="${property.propertyHost.hostId}"></td>
 					<td th:text="${property.propertyLocation.propertyId}"></td>
-					<td th:text="${property.propertyTypeId}"></td>
 					<td th:text="${property.nightlyRate}"></td>
 
 					<td><a th:href="@{/editproperty/{id}(id=${property.propertyId})}">Edit</a></td>

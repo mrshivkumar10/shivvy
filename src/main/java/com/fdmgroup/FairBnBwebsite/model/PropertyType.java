@@ -1,10 +1,13 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,10 +18,13 @@ public class PropertyType {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "property_type_id", unique = true, nullable = false)
 	private int propertyTypeId;
+	@OneToMany(mappedBy="propertyType", cascade=CascadeType.REMOVE)
+	private List <Property> properties;
 	
 	@Column(name="property_type")
 	private String propertyTypeName;
 
+	//default constructor
 	public PropertyType() {}
 
 	public PropertyType(int propertyTypeId, String propertyTypeName) {
