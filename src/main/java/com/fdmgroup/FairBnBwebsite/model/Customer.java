@@ -1,10 +1,17 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,14 +23,12 @@ public class Customer {
 	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customerId;
 
-	@Column(name = "contact_id")
-	private String contactId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="contact_id")
+	private ContactDetail customerDetail;
 
-	public Customer(int customerId, String contactId) {
-		super();
-		this.customerId = customerId;
-		this.contactId = contactId;
-	}
+	
+	
 
 	public Customer() {
 	}
@@ -38,17 +43,24 @@ public class Customer {
 		this.customerId = customerId;
 	}
 
-	public String getContactId() {
-		return contactId;
+
+
+	public ContactDetail getCustomerDetail() {
+		return customerDetail;
 	}
 
-	public void setContactId(String contactId) {
-		this.contactId = contactId;
+
+
+	public void setCustomerDetail(ContactDetail customerDetail) {
+		this.customerDetail = customerDetail;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", contactId=" + contactId + "]";
-	}
+
+
+
+
+	
+
+	
 
 }
