@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -22,18 +23,18 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customerId;
+	
+	@OneToMany(mappedBy="customerReservation")
+	private List <Reservation> reservations;
+	
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="contact_id")
 	private ContactDetail customerDetail;
 
-	
-	
-
+	//default constructor
 	public Customer() {
 	}
-
-
 
 	public int getCustomerId() {
 		return customerId;
@@ -43,24 +44,20 @@ public class Customer {
 		this.customerId = customerId;
 	}
 
-
-
 	public ContactDetail getCustomerDetail() {
 		return customerDetail;
 	}
-
-
 
 	public void setCustomerDetail(ContactDetail customerDetail) {
 		this.customerDetail = customerDetail;
 	}
 
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
 
-
-
-
-	
-
-	
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 
 }

@@ -18,13 +18,12 @@
 					<th>Property ID</th>
 					<th>Check-In Date</th>
 					<th>Check-Out Date</th>
-					
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="reservation : ${reservationAttr}">
 					<td th:text="${reservation.reservationId}"></td>
-					<td th:text="${reservation.customerId}"></td>
+					<td th:text="${reservation.customerReservation.customerId}"></td>
 					<td th:text="${reservation.propertyId}"></td>
 					<td th:text="${reservation.checkInDate}"></td>
 					<td th:text="${reservation.checkOutDate}"></td>

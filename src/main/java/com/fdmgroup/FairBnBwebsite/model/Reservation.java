@@ -4,10 +4,14 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="reservations")
@@ -21,8 +25,9 @@ public class Reservation {
 	@Column(name="property_id")
 	private int propertyId;
 	
-	@Column(name="customer_id")
-	private int customerId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "customer_id")
+	private Customer customerReservation;
 	
 	@Column(name="check_in_date")
 	private LocalDate checkInDate;
@@ -33,16 +38,6 @@ public class Reservation {
 	public Reservation() {
 	}
 	
-	public Reservation(int reservationId, int propertyId, int customerId, LocalDate checkInDate,
-			LocalDate checkOutDate) {
-		super();
-		this.reservationId = reservationId;
-		this.propertyId = propertyId;
-		this.customerId = customerId;
-		this.checkInDate = checkInDate;
-		this.checkOutDate = checkOutDate;
-	}
-
 	public int getReservationId() {
 		return reservationId;
 	}
@@ -58,15 +53,7 @@ public class Reservation {
 	public void setPropertyId(int propertyId) {
 		this.propertyId = propertyId;
 	}
-
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-
+	
 	public LocalDate getCheckInDate() {
 		return checkInDate;
 	}
@@ -83,12 +70,12 @@ public class Reservation {
 		this.checkOutDate = checkOutDate;
 	}
 
-	@Override
-	public String toString() {
-		return "Reservation [reservationId=" + reservationId + ", propertyId=" + propertyId + ", customerId="
-				+ customerId + ", checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + "]";
+	public Customer getCustomerReservation() {
+		return customerReservation;
 	}
-	
-	
+
+	public void setCustomerReservation(Customer customerReservation) {
+		this.customerReservation = customerReservation;
+	}
 
 }
