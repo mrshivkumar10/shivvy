@@ -30,8 +30,9 @@ public class Host {
 	
 
 	
-	@Column(name="contact_id")
-	private int contactId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="contact_id")
+	private ContactDetail hostDetail;
 	
 	//default constructor
 	public Host(){}
@@ -44,14 +45,20 @@ public class Host {
 		this.hostId = hostId;
 	}
 
-	public int getContactId() {
-		return contactId;
+	public List<Property> getProperties() {
+		return properties;
 	}
 
-	public void setContactId(int contactId) {
-		this.contactId = contactId;
+	public void setProperties(List<Property> properties) {
+		this.properties = properties;
 	}
-	
-	
+
+	public ContactDetail getHostDetail() {
+		return hostDetail;
+	}
+
+	public void setHostDetail(ContactDetail hostDetail) {
+		this.hostDetail = hostDetail;
+	}
 
 }

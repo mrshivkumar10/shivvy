@@ -27,13 +27,10 @@ public class ContactDetail {
 	
 	@OneToMany(mappedBy="customerDetail", cascade=CascadeType.ALL)
 	private List<Customer> customers;
-//	
-//	@JoinColumn(name="contact_id")
-//	@OneToMany(mappedBy="hostDetail", cascade=CascadeType.ALL)
-//	private List<Host> hosts;
 
+	@OneToMany(mappedBy="hostDetail", cascade=CascadeType.ALL)
+	private List<Host> host;
 
-	
 	@Column(name="phone_number")
 	private String phoneNumber;
 	

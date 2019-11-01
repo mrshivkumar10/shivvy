@@ -20,7 +20,7 @@
 			<tbody>
 				<tr th:each="host : ${hostAttr}">
 					<td th:text="${host.hostId}"></td>
-					<td th:text="${host.contactId}"></td>
+					<td th:text="${host.hostDetail.contactId}"></td>
 				<!-- 	<td><a th:href="@{/edithost/{id}(id=${host.hostId})}">Edit</a></td>
 					<td><a th:href="@{/deletehost/{id}(id=${host.hostId})}">Delete</a></td> -->
 				</tr>
