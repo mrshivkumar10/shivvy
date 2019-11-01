@@ -24,7 +24,7 @@
 				<tr th:each="reservation : ${reservationAttr}">
 					<td th:text="${reservation.reservationId}"></td>
 					<td th:text="${reservation.customerReservation.customerId}"></td>
-					<td th:text="${reservation.propertyId}"></td>
+					<td th:text="${reservation.reservationProperty.propertyId}"></td>
 					<td th:text="${reservation.checkInDate}"></td>
 					<td th:text="${reservation.checkOutDate}"></td>
 					<td><a th:href="@{/editreservation/{id}(id=${reservation.reservationId})}">Edit</a></td>

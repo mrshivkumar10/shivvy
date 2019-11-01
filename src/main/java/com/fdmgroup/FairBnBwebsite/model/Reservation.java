@@ -1,7 +1,7 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
 import java.time.LocalDate;
-
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,20 +10,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="reservations")
 public class Reservation {
+	
+//	@OneToMany(mappedBy="gameGenre")
+//	private List <Videogame> videogames;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "reservation_id", unique = true, nullable = false)
 	private int reservationId;
 	
-	@Column(name="property_id")
-	private int propertyId;
+//	@OneToMany(mappedBy="propertyReservation")
+//	private List <Reservation> reservations;
+	
+//	@Column(name="property_id")
+//	private int propertyId;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "property_id")
+	private Property reservationProperty;
+	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
@@ -35,6 +46,7 @@ public class Reservation {
 	@Column(name="check_out_date")
 	private LocalDate checkOutDate;
 	
+	//default constructor
 	public Reservation() {
 	}
 	
@@ -46,13 +58,6 @@ public class Reservation {
 		this.reservationId = reservationId;
 	}
 
-	public int getPropertyId() {
-		return propertyId;
-	}
-
-	public void setPropertyId(int propertyId) {
-		this.propertyId = propertyId;
-	}
 	
 	public LocalDate getCheckInDate() {
 		return checkInDate;
@@ -76,6 +81,14 @@ public class Reservation {
 
 	public void setCustomerReservation(Customer customerReservation) {
 		this.customerReservation = customerReservation;
+	}
+
+	public Property getReservationProperty() {
+		return reservationProperty;
+	}
+
+	public void setReservationProperty(Property reservationProperty) {
+		this.reservationProperty = reservationProperty;
 	}
 
 }

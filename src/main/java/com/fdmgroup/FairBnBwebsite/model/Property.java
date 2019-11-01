@@ -1,5 +1,7 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,8 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "properties")
@@ -17,11 +19,18 @@ public class Property {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "property_id", unique = true, nullable = false)
+	@JoinColumn(name = "property_id", unique = true, nullable = false)
 	private int propertyId;
+	
+	@OneToMany(mappedBy="reservationProperty")
+	private List <Reservation> reservation;
+	
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name = "genre_id")
+//	private Genre gameGenre;
 
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "host_id")
+	@JoinColumn(name = "host_id") //hostId
 	private Host propertyHost;
 	
 	@Column(name = "location_id")
