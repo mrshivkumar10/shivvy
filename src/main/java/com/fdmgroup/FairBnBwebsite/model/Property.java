@@ -25,26 +25,23 @@ public class Property {
 	@OneToMany(mappedBy="reservationProperty")
 	private List <Reservation> reservation;
 	
-//	@ManyToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name = "genre_id")
-//	private Genre gameGenre;
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "host_id") //hostId
 	private Host propertyHost;
 	
-	@Column(name = "location_id")
-	private int locationId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "location_id") //locationId
+	private Property propertyLocation;	
+	
 	@Column(name = "property_type_id")
 	private int propertyTypeId;
 	
 	@Column(name = "nightly_rate")
 	private int nightlyRate;
 
+	//default constructor
 	public Property(){}
-
 	
-
 	public int getPropertyId() {
 		return propertyId;
 	}
@@ -57,20 +54,8 @@ public class Property {
 		return propertyHost;
 	}
 
-
-
 	public void setPropertyHost(Host propertyHost) {
 		this.propertyHost = propertyHost;
-	}
-
-
-
-	public int getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
 	}
 
 	public int getPropertyTypeId() {
@@ -89,7 +74,20 @@ public class Property {
 		this.nightlyRate = nightlyRate;
 	}
 
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
 
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	public Property getPropertyLocation() {
+		return propertyLocation;
+	}
+
+	public void setPropertyLocation(Property propertyLocation) {
+		this.propertyLocation = propertyLocation;
+	}
 	
-
 }

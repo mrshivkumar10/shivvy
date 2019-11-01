@@ -1,10 +1,13 @@
 package com.fdmgroup.FairBnBwebsite.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,19 +18,18 @@ public class Location {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "location_id", unique = true, nullable = false)
 	private int locationId;
+
+	@OneToMany(mappedBy="propertyLocation")
+	private List <Property> properties;
+	
 	@Column(name = "city")
 	private String city;
+	
 	@Column(name = "county")
 	private String county;
 	
+	//default constructor
 	public Location () {}
-
-	public Location(int locationId, String city, String county) {
-		super();
-		this.locationId = locationId;
-		this.city = city;
-		this.county = county;
-	}
 
 	public int getLocationId() {
 		return locationId;
@@ -51,11 +53,6 @@ public class Location {
 
 	public void setCounty(String county) {
 		this.county = county;
-	}
-
-	@Override
-	public String toString() {
-		return "Location [locationId=" + locationId + ", city=" + city + ", county=" + county + "]";
 	}
 	
 

@@ -25,16 +25,9 @@ public class Reservation {
 	@Column(name = "reservation_id", unique = true, nullable = false)
 	private int reservationId;
 	
-//	@OneToMany(mappedBy="propertyReservation")
-//	private List <Reservation> reservations;
-	
-//	@Column(name="property_id")
-//	private int propertyId;
-	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "property_id")
 	private Property reservationProperty;
-	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "customer_id")

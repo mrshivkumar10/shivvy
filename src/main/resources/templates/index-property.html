@@ -23,7 +23,7 @@
 				<tr th:each="property : ${propertyAttr}">
 					<td th:text="${property.propertyTypeId}"></td>
 					<td th:text="${property.propertyHost.hostId}"></td>
-					<td th:text="${property.locationId}"></td>
+					<td th:text="${property.propertyLocation.propertyId}"></td>
 					<td th:text="${property.propertyTypeId}"></td>
 					<td th:text="${property.nightlyRate}"></td>
 
