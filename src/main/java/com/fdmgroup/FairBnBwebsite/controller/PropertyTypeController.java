@@ -47,7 +47,7 @@ public class PropertyTypeController {
 	}
 
 	@GetMapping("/editpropertytype/{id}")
-	public String propertyTypeUpdateForm(@PathVariable("id") int propertyTypeId, Model model) {
+	public String propertyTypeUpdateForm(@PathVariable("id") Integer propertyTypeId, Model model) {
 		PropertyType propertyType = propertyTypeService.getPropertyTypeById(propertyTypeId);
 		model.addAttribute("propertyTypeAttr", propertyType);
 		return "update-propertytype";
@@ -55,24 +55,22 @@ public class PropertyTypeController {
 	}
 
 	@PostMapping("/updatepropertytype/{id}")
-	public String updatePropertyType(@PathVariable("id") int propertyTypeId,
-			@Valid PropertyType propertyType, BindingResult result, Model model) {
+	public String updatePropertyType(@PathVariable("id") Integer propertyTypeId, @Valid PropertyType propertyType,
+			BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "update-propertytype";
 		}
-		propertyType.setPropertyTypeId(propertyTypeId);		
+		propertyType.setPropertyTypeId(propertyTypeId);
 		propertyTypeService.editPropertyType(propertyType);
 		model.addAttribute("propertyTypeAttr", propertyTypeService.getAllPropertyTypes());
 		return "index-propertytypes";
 	}
-																								
+
 	@GetMapping("/deletepropertytype/{id}")
-	public String deletePropertyType(@PathVariable("id") int propertyTypeId, Model model) {
+	public String deletePropertyType(@PathVariable("id") Integer propertyTypeId, Model model) {
 		propertyTypeService.deletePropertyTypeById(propertyTypeId);
 		model.addAttribute("propertyTypeAttr", propertyTypeService.getAllPropertyTypes());
 		return "index-propertytypes";
 	}
-	
-	
-																							
+
 }

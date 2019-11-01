@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Property Details</title>
+</head>
+<body>
+
+	<div>
+		<form action="#" th:action="@{/updateproperty/{id}(id=${propertyAttr.propertyId})}" th:object="${propertyAttr}" method="post">
+			
+			<label for="propertyId">Property ID</label> 
+			<input type="text" th:field="*{propertyId}" id="propertyId" placeholder="Property ID">
+			<span th:if="${#fields.hasErrors('propertyId')}" th:errors="*{propertyId}"></span> 
+			
+			<label for="hostId">Host ID</label> 
+			<input type="text" th:field="*{hostId}" id="hostId" placeholder="Host ID">
+			<span th:if="${#fields.hasErrors('hostId')}" th:errors="*{hostId}"></span> 
+			
+			<label for="locationId">Location ID</label> 
+			<input type="text" th:field="*{locationId}" id="locationId" placeholder="Location ID">
+			<span th:if="${#fields.hasErrors('locationId')}" th:errors="*{locationId}"></span> 
+			
+			<label for="propertyTypeId">Property Type ID</label> 
+			<input type="text" th:field="*{propertyTypeId}" id="propertyTypeId" placeholder="Property Type ID">
+			<span th:if="${#fields.hasErrors('propertyTypeId')}" th:errors="*{propertyTypeId}"></span>  
+			
+			<label for="nightyRate">Nightly Rate</label> 
+			<input type="text" th:field="*{nightyRate}" id="nightyRate" placeholder="Nightly Rate £">
+			<span th:if="${#fields.hasErrors('nightyRate')}" th:errors="*{nightyRate}"></span> 
+			
+			<input type="submit" value="Update Property Details">
+		</form>
+		<a href="/">Home</a>
+	</div>
+
+</body>
+</html>
