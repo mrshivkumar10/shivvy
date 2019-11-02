@@ -8,9 +8,14 @@
 
 <div>
 		<form action="#" th:action="@{/updatehost/{id}(id=${hostAttr.hostId})}" th:object="${hostAttr}" method="post">
-			<label for="contactId">Contact ID</label> 
-			<input type="text" th:field="*{contactId}" id="contactId" placeholder="Contact ID">
-			<span th:if="${#fields.hasErrors('contactId')}" th:errors="contactId"></span> 
+			<label for="hostDetail.contactId">Contact ID</label> 
+			<input type="text" th:field="*{hostDetail.contactId}" id="hostDetail.contactId" placeholder="Contact ID">
+			<span th:if="${#fields.hasErrors('hostDetail.contactId')}" th:errors="hostDetail.contactId"></span> 
+			
+			<label for="hostDetail.firstName">Contact ID</label> 
+			<input type="text" th:field="*{hostDetail.firstName}" id="hostDetail.firstName" placeholder="First name">
+			<span th:if="${#fields.hasErrors('hostDetail.firstName')}" th:errors="hostDetail.firstName"></span> 
+			
 			<input type="submit" value="Update Host">
 		</form>
 		<a href="/">Home</a>

@@ -9,9 +9,9 @@
 <div>
 		<form action="#" th:action="@{/updatecustomer/{id}(id=${customerAttr.customerId})}" th:object="${customerAttr}" method="post">
 				
-			<label for="contactId">Contact ID</label> 
-			<input type="text" th:field="*{contactId}" id="contactId" placeholder="Contact ID">
-			<span th:if="${#fields.hasErrors('contactId')}" th:errors="*{contactId}"></span> 
+			<label for="customerDetail.contactId">Contact ID</label> 
+			<input type="text" th:field="*{customerDetail.contactId}" id="customerDetail.contactId" placeholder="Contact ID">
+			<span th:if="${#fields.hasErrors('customerDetail.contactId')}" th:errors="*{customerDetail.contactId}"></span> 
 			
 			<input type="submit" value="Update Customer">
 			

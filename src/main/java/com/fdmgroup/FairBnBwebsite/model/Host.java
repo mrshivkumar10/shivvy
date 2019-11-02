@@ -31,7 +31,7 @@ public class Host {
 
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="contact_id")
+	@JoinColumn(name="contact_id") //contactId
 	private ContactDetail hostDetail;
 	
 	//default constructor

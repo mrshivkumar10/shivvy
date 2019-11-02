@@ -71,6 +71,4 @@ public class HostController {
 		model.addAttribute("hostAttr", hostService.getAllHosts());
 		return "index-hosts";
 	}
-	
-		
 }

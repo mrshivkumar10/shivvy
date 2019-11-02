@@ -23,13 +23,12 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "customer_id", unique = true, nullable = false)
 	private int customerId;
-	
 	@OneToMany(mappedBy="customerReservation")
 	private List <Reservation> reservations;
 	
 
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="contact_id")
+	@JoinColumn(name="contact_id") //contact id
 	private ContactDetail customerDetail;
 
 	//default constructor
